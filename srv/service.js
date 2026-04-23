@@ -2,11 +2,17 @@ import cds from '@sap/cds';
 import { getRedis } from './utils/redis.js';
 
 
+
+
+
 export default cds.service.impl(async function () {
 
     const { Vehicles, States, Orders, OrderItems} = this.entities;
     // console.log(this.entities);
 
+
+
+    
     //Based on states, Vehicle id Will get genetated.
     this.before('CREATE', 'Vehicles', async (req) => {
         const { state } = req.data;
