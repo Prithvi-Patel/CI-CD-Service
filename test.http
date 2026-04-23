@@ -1,0 +1,92 @@
+###
+POST http://localhost:4004/odata/v4/my/States
+Content-Type: application/json
+
+{
+  "stateCode": "TN",
+  "stateName": "Tamil Nadu",
+  "tax": 15
+}
+
+###
+GET http://localhost:4004/odata/v4/my/States
+Content-Type: application/json
+
+###
+DELETE  http://localhost:44141/odata/v4/my/States(stateId='TN')
+Content-Type: application/json
+
+###
+POST http://localhost:4004/odata/v4/my/Dealers
+Content-Type: application/json
+
+{
+  "dealerId": "D006",
+  "dealerName": " Kozhikode",
+  "email": "Kozhikode@gmail.com",
+  "phone": "897649595",
+  "state": {
+    "stateCode": "KL"
+  }
+}
+
+
+###
+POST  http://localhost:4004/odata/v4/my/Customers
+Content-Type: application/json
+
+{
+  "customerId": "C006",
+  "customerName": "Arya",
+  "email": "Arya@gmail.com",
+  "phone": "9008956987",
+  "state": {
+    "stateCode": "KL"
+  }
+}
+
+###
+POST http://localhost:4004/odata/v4/my/Vehicles
+Content-Type: application/json
+
+{
+  "modelName": "Volvo XC90",
+  "basePrice": 25000000,
+  "stock": 3,
+  "state": {
+    "stateCode": "TN"
+  },
+  "dealer": {
+    "dealerId": "D001"
+  }
+}
+
+###
+GET http://localhost:4004/odata/v4/my/getVehicleIDs
+Content-Type: application/json
+
+
+###
+GET http://localhost:4004/odata/v4/my/getStateIDs
+Content-Type: application/json
+
+
+
+
+###
+POST http://localhost:4004/odata/v4/my/Orders
+Content-Type: application/json
+
+{
+  "orderId": "ORD003",
+  "orderDate": "2022-09-30",
+  "quantity": 1,
+  "status": "NEW",
+
+  "customer": {
+    "customerId": "C005"
+  },
+  "vehicle": {
+    "vehicleId": "KL-0001"
+  }
+}

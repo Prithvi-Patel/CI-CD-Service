@@ -1,0 +1,46 @@
+{
+  "name": "task_4",
+  "version": "1.0.0",
+  "description": "Vehicle Management.",
+  "type": "module",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9.8.4",
+    "@sap/xsenv": "^6.2.0",
+    "@sap/xssec": "^4.13.0",
+    "express": "^4",
+    "redis": "^5.12.1"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9.8.4"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "[development]": {
+          "kind": "sqlite"
+        },
+        "[production]": {
+          "kind": "hana"
+        }
+      },
+      "[production]": {
+        "auth": {
+          "kind": "mocked"
+        }
+      }
+    },
+    "server": {
+      "index": true
+    }
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
