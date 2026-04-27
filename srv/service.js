@@ -140,7 +140,7 @@ export default cds.service.impl(async function () {
     await redis.set(cacheKey, JSON.stringify(data), {
         EX: 60000
     });
-    console.log('📦 Stored in Redis');
+    console.log('-------------------Stored in Redis-------------------');
     return data;
     });
 
@@ -176,7 +176,7 @@ export default cds.service.impl(async function () {
 
     const redis = await getRedis();
     await redis.del('vehicles_all');
-    console.log('🗑️ Cache cleared');
+    console.log('-------------Cache cleared');
     });
 
 
