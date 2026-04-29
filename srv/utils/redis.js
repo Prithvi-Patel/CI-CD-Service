@@ -2,7 +2,7 @@ import { createClient } from 'redis';
 let client;
 export async function getRedis() {
     if (client) return client;
-
+cf app <your-app-name>
     let redisUrl;
     // Get from BTP (VCAP_SERVICES)
     if (process.env.VCAP_SERVICES) {
@@ -15,15 +15,27 @@ export async function getRedis() {
     // Local fallback
     if (!redisUrl) {
         redisUrl = process.env.REDIS_URL;
+        console.log('Redis URL:', redisUrl);
     }
+
+
+    // client = createClient({
+    //     url: redisUrl,
+    //     socket: {
+    //         tls: true,
+    //         rejectUnauthorized: false
+    //     }
+    // });
+
     client = createClient({
-        url: redisUrl,
-        socket: {
+    url: redisUrl,
+    socket: process.env.VCAP_SERVICES
+        ? {
             tls: true,
             rejectUnauthorized: false
-        }
-    });
-
+          }
+        : {}
+});
     client.on('error', (err) => {
         console.error('Redis Error:', err);
     });

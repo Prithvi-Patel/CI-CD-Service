@@ -8,6 +8,7 @@
     "@sap/cds": "^9.8.4",
     "@sap/xsenv": "^6.2.0",
     "@sap/xssec": "^4.13.0",
+    "dotenv": "^17.4.2",
     "express": "^4",
     "redis": "^5.12.1"
   },

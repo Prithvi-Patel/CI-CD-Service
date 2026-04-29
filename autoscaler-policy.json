@@ -1,20 +1,31 @@
 {
   "instance_min_count": 1,
   "instance_max_count": 5,
-  "scaling_rules": [
-    {
-      "metric_type": "cpu",
-      "threshold": 70,
-      "operator": ">",
-      "adjustment": "+1",
-      "cool_down_secs": 60
-    },
-    {
-      "metric_type": "cpu",
-      "threshold": 30,
-      "operator": "<",
-      "adjustment": "-1",
-      "cool_down_secs": 120
-    }
-  ]
+  "scaling_rules": [],
+  "schedules": {
+    "timezone": "Asia/Kolkata",
+    "recurring_schedule": [
+      {
+        "instance_min_count": 3,
+        "instance_max_count": 5,
+        "start_time": "09:00",
+        "end_time": "18:00",
+        "days_of_week": [1, 2, 3, 4, 5]
+      },
+      {
+        "instance_min_count": 1,
+        "instance_max_count": 2,
+        "start_time": "18:00",
+        "end_time": "23:59",
+        "days_of_week": [1, 2, 3, 4, 5]
+      },
+      {
+        "instance_min_count": 1,
+        "instance_max_count": 1,
+        "start_time": "00:00",
+        "end_time": "09:00",
+        "days_of_week": [1, 2, 3, 4, 5]
+      }
+    ]
+  }
 }

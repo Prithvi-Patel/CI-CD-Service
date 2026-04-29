@@ -1,5 +1,5 @@
 // using { Dealers as db } from '../db/schema';
-
+// import 'dotenv/config';
 using { VOM as db } from '../db/schema';
 
 
@@ -17,8 +17,8 @@ service MyService {
 
     
     
-    entity StateIDs as projection on States {stateCode};     
-    entity VehicleIDs as projection on db.Vehicles {vehicleId};
+    // entity StateIDs as projection on States {stateCode};     
+    // entity VehicleIDs as projection on db.Vehicles {vehicleId};
 
 
     entity VehicleCountByState as
@@ -31,8 +31,8 @@ service MyService {
 
     // action testRedis returns String;
 
-    // function getVehicleIDs() returns array of String;
-    // function getStateIDs() returns array of String;
+    function getVehicleIDs() returns array of String;
+    function getStateIDs() returns array of String;
    
     // entity Dealers as projection on db;
 }

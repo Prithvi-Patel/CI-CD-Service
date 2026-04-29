@@ -121,7 +121,7 @@ export default cds.service.impl(async function () {
     });
 
 
-    
+
     //Vehicle crud override
     this.on('READ', 'Vehicles', async (req, next) => {
     console.log('----------Instance-----------:', process.env.CF_INSTANCE_INDEX);
