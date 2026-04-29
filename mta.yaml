@@ -42,7 +42,6 @@ resources:
       service: hana
       service-plan: hdi-shared
 
-
   - name: task_4-redis
     type: org.cloudfoundry.existing-service
     parameters:

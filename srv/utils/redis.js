@@ -1,8 +1,8 @@
 import { createClient } from 'redis';
+
 let client;
 export async function getRedis() {
     if (client) return client;
-cf app <your-app-name>
     let redisUrl;
     // Get from BTP (VCAP_SERVICES)
     if (process.env.VCAP_SERVICES) {
